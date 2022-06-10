@@ -1,8 +1,11 @@
 import { PortableText } from "@portabletext/react"
+//@ts-ignore
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+//@ts-ignore
 import { materialOceanic } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import Button from "@/common/components/functionButton"
 import Link from "next/link"
+import Head from "next/head"
 
 export async function getStaticProps(context: any) {
     const res = await fetch(`https://6po0ek1e.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%20%3D%3D%20%22post%22%20%26%26%20slug.current%20%3D%3D%20'${context.params.post}'%5D%7B'image'%3AmainImage.asset-%3Eurl%2C%20title%2C%20'categories'%3Acategories%5B%5D-%3Etitle%2C%20body%2C%20'author'%3Aauthor-%3Ename%2C%20_createdAt%7D`)
@@ -43,7 +46,7 @@ export async function getStaticPaths() {
     })
     return {
         paths,
-        fallback: true // false or 'blocking'
+        fallback: false
     }
 }
 
@@ -51,6 +54,10 @@ export default function Post(props: any) {
     const post = props.post.result[0]
     return (
         <>
+            <Head>
+                <title>{props.post.result[0].title}</title>
+                <link rel="shortcut icon" href="/favicon.png" />
+            </Head>
             <section className="section">
                 <Link passHref href='/blog'><a><Button>page.back</Button></a></Link>
                 <img className="w-full h-48 sm:h-72 lg:h-96 xl:h-[425px] 2xl:h-[500px] object-cover" src={post.image} />

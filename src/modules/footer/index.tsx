@@ -2,6 +2,7 @@ import ConstWrap from "@/common/components/constWrap"
 import Button from "@/common/components/functionButton"
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
 import { FaArtstation } from 'react-icons/fa'
+import Link from "next/link"
 
 export default function Footer() {
 
@@ -31,17 +32,23 @@ export default function Footer() {
 
                 <div className="space-y-1">
                     <ConstWrap variable="socials">
-                        <button>
-                            <BsGithub className='transition hover:fill-accent w-6 h-6' />
-                        </button>
-                        <span>, </span>
-                        <button>
-                            <FaArtstation className='transition hover:fill-[#5972ff] w-6 h-6' />
-                        </button>
-                        <span>, </span>
-                        <button>
-                            <BsLinkedin className='transition hover:fill-[#0059ff] w-6 h-6' />
-                        </button>
+                        <div className="flex space-x-2">
+                            <Link href='https://github.com/B3nten' rel='external' target='_blank' passHref>
+                                <a>
+                                    <BsGithub className='transition hover:fill-accent w-6 h-6' />
+                                </a>
+                            </Link>
+                            <Link href='https://www.artstation.com/benten28' rel='external' target='_blank' passHref>
+                                <a>
+                                    <FaArtstation className='transition hover:fill-[#5972ff] w-6 h-6' />
+                                </a>
+                            </Link>
+                            <Link href='https://www.linkedin.com/in/bentonbc/' rel='external' target='_blank' passHref>
+                                <a>
+                                    <BsLinkedin className='transition hover:fill-[#0059ff] w-6 h-6' />
+                                </a>
+                            </Link>
+                        </div>
                     </ConstWrap>
                 </div>
             </div>

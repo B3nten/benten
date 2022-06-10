@@ -67,15 +67,21 @@ export default function Navigation() {
                                 </ConstWrap>
                             </div>
                             <div className='flex space-x-4 mt-10'>
-                                <button>
-                                    <BsGithub className='transition hover:fill-accent w-6 h-6' />
-                                </button>
-                                <button>
-                                    <FaArtstation className='transition hover:fill-[#5972ff] w-6 h-6' />
-                                </button>
-                                <button>
-                                    <BsLinkedin className='transition hover:fill-[#0059ff] w-6 h-6' />
-                                </button>
+                                <Link href='https://github.com/B3nten' rel='external' target='_blank' passHref>
+                                    <a>
+                                        <BsGithub className='transition hover:fill-accent w-6 h-6' />
+                                    </a>
+                                </Link>
+                                <Link href='https://www.artstation.com/benten28' rel='external' target='_blank' passHref>
+                                    <a>
+                                        <FaArtstation className='transition hover:fill-[#5972ff] w-6 h-6' />
+                                    </a>
+                                </Link>
+                                <Link href='https://www.linkedin.com/in/bentonbc/' rel='external' target='_blank' passHref>
+                                    <a>
+                                        <BsLinkedin className='transition hover:fill-[#0059ff] w-6 h-6' />
+                                    </a>
+                                </Link>
                             </div>
                         </Dialog.DialogContent>
                     </Dialog.Portal>
